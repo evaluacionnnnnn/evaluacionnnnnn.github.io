@@ -1,0 +1,135 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julio Verne</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fdf7f3;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .back {
+      display: inline-block;
+      background-color: #222;
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .back:hover {
+      background-color: #444;
+    }
+
+    .libros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .libros article {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    .libros article:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .libros img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+ .libros h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      text-align: center;
+      background-color: #000000;
+      color: #fff;
+      padding: 0.8rem;
+      margin: 0;
+    }
+    
+
+    .libros q {
+      display: block;
+      font-style: italic;
+      font-size: 0.95rem;
+      text-align: center;
+      color: #555;
+      padding: 0 1rem 0.5rem;
+    }
+
+    .descripcion-libro {
+      font-size: 0.93rem;
+      padding: 0 1rem 1.5rem;
+      text-align: justify;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Julio Verne</h1>
+    <p>Visionario de la ciencia ficción, sus aventuras imaginan los futuros posibles del conocimiento humano.</p>
+    <a href="index.html" class="back">&larr; Volver</a>
+  </header>
+
+  <section class="libros">
+    <article>
+      <img src="Julio Verne/De la Tierra a la Luna.jpg" alt="De la Tierra a la Luna">
+      <h2>De la Tierra a la Luna</h2>
+      <q>Todo lo que una persona puede imaginar, otros pueden hacerlo realidad.</q>
+      <p class="descripcion-libro">
+        Un grupo de artilleros se propone enviar un proyectil tripulado a la Luna, en una historia que anticipa la exploración espacial. Verne combina ciencia, humor y aventura en esta obra pionera de la ciencia ficción.
+      </p>
+    </article>
+
+    <article>
+      <img src="Julio Verne/Veinte mil Leguas de Viaje Submarino.jpg" alt="Veinte mil leguas de viaje submarino">
+      <h2>Veinte mil leguas de viaje submarino</h2>
+      <q>El mar es todo. Cubre siete décimas partes del globo terrestre.</q>
+      <p class="descripcion-libro">
+        El profesor Aronnax y sus compañeros son capturados por el Capitán Nemo a bordo del Nautilus, un submarino futurista que los lleva a un viaje asombroso por las profundidades del océano. Ciencia, misterio y maravilla en cada página.
+      </p>
+    </article>
+  </section>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autores y Libros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fdf7f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #888;
+    }
+
+    #busqueda {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 1rem;
+      margin-top: 1rem;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #faf3ec;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background-color: #e6dcd0;
+      color: #000;
+    }
+
+    .autores {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .autor-card {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      width: 260px;
+      text-align: center;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      padding-bottom: 1rem;
+    }
+
+    .autor-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .autor-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .autor-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .autor-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      padding: 1rem 0 0.5rem;
+    }
+
+    .autor-card p {
+      padding: 0 1rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .estrellas {
+      margin: 0.5rem 0;
+    }
+
+    .estrella {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ccc;
+      transition: color 0.2s;
+    }
+
+    .estrella.activa {
+      color: #f5a623;
+    }
+
+    textarea {
+      width: 85%;
+      margin-top: 0.5rem;
+      padding: 0.4rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .mensaje {
+      text-align: center;
+      font-size: 1rem;
+      color: #777;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f0e9e1;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .autores {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Explora Grandes Autores</h1>
+    <p>Descubre nuevas voces y encuentra tus próximos libros favoritos</p>
+    <input type="text" id="busqueda" placeholder="Buscar autor..." aria-label="Buscar autor">
+  </header>
+
+  <nav role="navigation" aria-label="Filtrar por categoría">
+    <button onclick="filtrarCategoria('todos')">Todos</button>
+    <button onclick="filtrarCategoria('terror')">Terror</button>
+    <button onclick="filtrarCategoria('filosofia')">Filosofía</button>
+    <button onclick="filtrarCategoria('ciencia')">Ciencia Ficción</button>
+  </nav>
+
+  <section class="autores" id="autores"></section>
+  <div class="mensaje" id="mensaje"></div>
+
+  <footer>
+    © 2025 - Autores y Libros. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    const autores = [
+      {
+        nombre: "Edgar Allan Poe",
+        descripcion: "Maestro del horror gótico y pionero del relato corto moderno.",
+        categoria: "terror",
+        link: "Edgar.html",
+        imagen: "https://www.worldhistory.org/uploads/images/19562.jpg?v=1747948505-1729069867"
+      },
+      {
+        nombre: "Franz Kafka",
+        descripcion: "Figura clave del existencialismo moderno y la alienación.",
+        categoria: "filosofia",
+        link: "franz.html",
+        imagen: "https://content-historia.nationalgeographic.com.es/medio/2020/05/29/kafka_7318ec3b_550x800.jpg"
+      },
+      {
+        nombre: "Friedrich Nietzsche",
+        descripcion: "Filósofo crítico de la moral tradicional y la religión.",
+        categoria: "filosofia",
+        link: "friedrich.html",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg"
+      },
+      {
+        nombre: "Julio Verne",
+        descripcion: "Pionero de la ciencia ficción con visión aventurera.",
+        categoria: "ciencia",
+        link: "julio.html",
+        imagen: "https://upload.wikimedia.org/wikipedia/commons/7/77/F%C3%A9lix_Nadar_1820-1910_portraits_Jules_Verne.jpg"
+      },
+      {
+        nombre: "Stephen King",
+        descripcion: "Maestro del terror moderno con obras populares y oscuras.",
+        categoria: "terror",
+        link: "stephe.html",
+        imagen: "https://stephenking.es/img/king-mini-bio.webp"
+      }
+    ];
+
+    const autoresContainer = document.getElementById('autores');
+    const busquedaInput = document.getElementById('busqueda');
+    const mensaje = document.getElementById('mensaje');
+
+    function guardarOpinion(nombre, estrellas, opinion) {
+      const datos = { estrellas, opinion };
+      localStorage.setItem(`autor_${nombre}`, JSON.stringify(datos));
+    }
+
+    function obtenerOpinion(nombre) {
+      const datos = localStorage.getItem(`autor_${nombre}`);
+      return datos ? JSON.parse(datos) : { estrellas: 0, opinion: '' };
+    }
+
+    function crearEstrellas(nombre, valorGuardado) {
+      let estrellasHTML = '';
+      for (let i = 1; i <= 5; i++) {
+        const activa = i <= valorGuardado ? 'activa' : '';
+        estrellasHTML += `<span class="estrella ${activa}" data-autor="${nombre}" data-valor="${i}">★</span>`;
+      }
+      return estrellasHTML;
+    }
+
+    function mostrarAutores(lista) {
+      autoresContainer.innerHTML = '';
+      if (lista.length === 0) {
+        mensaje.textContent = "No se encontraron resultados.";
+        return;
+      }
+      mensaje.textContent = '';
+      lista.forEach(autor => {
+        const { estrellas, opinion } = obtenerOpinion(autor.nombre);
+        const card = document.createElement('div');
+        card.className = 'autor-card';
+        card.innerHTML = `
+          <a href="${autor.link}" target="_blank">
+            <img src="${autor.imagen}" alt="${autor.nombre}">
+            <h2>${autor.nombre}</h2>
+            <p>${autor.descripcion}</p>
+          </a>
+          <div class="estrellas">${crearEstrellas(autor.nombre, estrellas)}</div>
+          <textarea rows="2" placeholder="Escribe tu opinión...">${opinion}</textarea>
+        `;
+        autoresContainer.appendChild(card);
+
+        // Eventos de estrellas
+        card.querySelectorAll('.estrella').forEach(estrella => {
+          estrella.addEventListener('click', () => {
+            const valor = parseInt(estrella.dataset.valor);
+            const autorNombre = estrella.dataset.autor;
+            guardarOpinion(autorNombre, valor, card.querySelector('textarea').value);
+            mostrarAutores(lista); 
+          });
+        });
+
+        
+        const textarea = card.querySelector('textarea');
+        textarea.addEventListener('input', () => {
+          const valor = parseInt(card.querySelector('.estrella.activa:last-of-type')?.dataset.valor || 0);
+          guardarOpinion(autor.nombre, valor, textarea.value);
+        });
+      });
+    }
+
+    function actualizarBotonesActivos(categoria) {
+      document.querySelectorAll('nav button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(categoria)) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    function filtrarCategoria(categoria) {
+      busquedaInput.value = '';
+      actualizarBotonesActivos(categoria);
+      const filtrados = categoria === 'todos' ? autores : autores.filter(a => a.categoria === categoria);
+      mostrarAutores(filtrados);
+    }
+
+    busquedaInput.addEventListener('input', e => {
+      const query = e.target.value.toLowerCase();
+      actualizarBotonesActivos('');
+      const filtrados = autores.filter(a => a.nombre.toLowerCase().includes(query));
+      mostrarAutores(filtrados);
+    });
+
+    filtrarCategoria('todos');
+  </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edgar Allan Poe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fdf8f4;
+      font-family: 'Roboto', sans-serif;
+      color: #ece5e5;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      color: rgb(18, 18, 18);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .back {
+      display: inline-block;
+      background-color: #fff;
+      color: #3b2e2a;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .back:hover {
+      background-color: #3b2e2a;
+      color: white;
+    }
+
+    .libros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .libros article {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(59, 24, 24, 0.07);
+      overflow: hidden;
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    .libros article:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .libros img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+     }
+ .libros h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      text-align: center;
+      background-color: #000000;
+      color: #fff;
+      padding: 0.8rem;
+      margin: 0;
+    }
+    
+
+    .libros q {
+      display: block;
+      font-style: italic;
+      font-size: 0.95rem;
+      text-align: center;
+      color: #444;
+      padding: 0 1rem 0.5rem;
+    }
+
+    .descripcion-libro {
+      font-size: 0.93rem;
+      padding: 0 1rem 1.5rem;
+      text-align: justify;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Edgar Allan Poe</h1>
+    <p>Maestro del horror gótico y pionero del relato corto moderno.</p>
+    <a href="index.html" class="back">&larr; Volver</a>
+  </header>
+
+  <section class="libros">
+    <article>
+      <img src="Edgar Allan Poe/El Cuervo.webp" alt="El Cuervo" />
+      <h2>El cuervo</h2>
+      <q>¡Pájaro o demonio, dime si existe un bálsamo en Galaad!</q>
+      <p class="descripcion-libro">
+        Un poema oscuro y melancólico que narra la visita de un cuervo parlante a un hombre atormentado por la pérdida de su amada Lenore. Un viaje hacia la desesperación y la locura.
+      </p>
+    </article>
+
+    <article>
+      <img src="Edgar Allan Poe/Eureka.jpg" alt="Eureka" />
+      <h2>Eureka</h2>
+      <q>La mente admite lo ilimitado por no concebir lo limitado.</q>
+      <p class="descripcion-libro">
+        Una obra filosófica y científica en la que Poe intenta explicar el origen del universo desde una perspectiva casi mística. Un texto visionario y complejo que anticipa ideas modernas.
+      </p>
+    </article>
+  </section>
+</body>
+</html>
+
